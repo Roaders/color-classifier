@@ -1,6 +1,6 @@
 {
   "name": "color-classifier-ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Classify the color along the reference color. using algorithm the CIEDE2000, RGB, HSV.",
   "main": "lib/color-classifier.js",
   "typings": "lib/color-classifier.d.ts",
