@@ -1,7 +1,7 @@
 import {minBy} from "./utils/min-by"
 import {Color} from "./utils/color"
 import { ColorDiff, AlgorithmTypes } from "./utils/color-diff"
-import * as Palette from "./palette/"
+import * as Palette from "./palette/index"
 
 function equal(a, b) {
   if (a === b) return true;
@@ -62,7 +62,7 @@ export class ColorClassifier {
     return this._algorithmType;
   }
 
-  public classify(value: any, format = "rgb") {
+  public classify(value: any): Color {
     const { palette, algorithmType } = this;
     const color = new Color(value);
     const array: {distance: number, color: Color}[] = [];
@@ -70,7 +70,7 @@ export class ColorClassifier {
     palette.forEach(paletteColor => {
       array.push({
         distance: ColorDiff.diff(algorithmType, paletteColor, color),
-        color: format === "raw" ? paletteColor : paletteColor[format]
+        color: paletteColor
       });
     });
 
@@ -79,11 +79,11 @@ export class ColorClassifier {
 
   classifyFromArray(colors: any[], format = "rgb") {
     const results = [];
-    const array = [];
+    const array: {palette:Color, color: Color}[] = [];
 
     colors.forEach(value => {
       const color = new Color(value);
-      const palette = this.classify(color.rgb, "raw");
+      const palette = this.classify(color.rgb);
       array.push({ palette, color });
     });
 
@@ -105,3 +105,5 @@ export class ColorClassifier {
     return results;
   }
 }
+
+export {Palette}
