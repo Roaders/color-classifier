@@ -3,6 +3,8 @@ color-classifier.js
 
 Classify the color along the reference color. using algorithm the CIEDE2000, RGB, HSV.
 
+Forked from [https://github.com/tsuyoshiwada/color-classifier](https://github.com/tsuyoshiwada/color-classifier) and turned into Typescript project
+
 ## INSTALL
 
 ```bash
