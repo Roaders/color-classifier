@@ -1,13 +1,11 @@
 "use strict";
 
-import assert from "power-assert"
-import ColorDiff, { AlgorithmTypes } from "../src/utils/color-diff"
-
+var assert = require('power-assert');
+var ColorDiff = require("../lib/utils/color-diff").ColorDiff;
 
 function ciede2kEqual(expected, l1, a1, b1, l2, a2, b2) {
   assert(expected === Math.round(ColorDiff._ciede2000(l1, a1, b1, l2, a2, b2) * 10000) / 10000, `{L:${l1}, a:${a1}, b:${b1}}, {L:${l2}, a:${a2}, b:${b2}} == ${expected}`);
 }
-
 
 describe("ColorDiff", () => {
 

@@ -1,12 +1,12 @@
 "use strict";
 
-import assert from "power-assert"
-import isPlainObject from "is-plain-object"
-import ColorClassifier from "../src/color-classifier"
-import Color from "../src/utils/color"
+var assert = require('power-assert');
+var isPlainObject = require('is-plain-object');
 
-const { Palette, AlgorithmTypes } = ColorClassifier;
-
+var ColorClassifier = require("../lib/color-classifier").ColorClassifier;
+var Color = require("../lib/utils/color").Color;
+var Palette = require("../lib/palette/index").Palette;
+var AlgorithmTypes = require("../lib/utils/color-diff").AlgorithmTypes;
 
 describe("ColorClassify", () => {
 
@@ -14,14 +14,14 @@ describe("ColorClassify", () => {
     it("should be set and get", () => {
       const c = new ColorClassifier();
 
-      c.setPalette(["#fff", "#000"]);
-      assert.deepStrictEqual(c.getPalette(), [
+      c.updatePalette(["#fff", "#000"]);
+      assert.deepStrictEqual(c.palette, [
         new Color("#fff"),
         new Color("#000")
       ]);
 
-      c.setAlgorithmType(AlgorithmTypes.HSV);
-      assert(c.getAlgorithmType() === AlgorithmTypes.HSV);
+      c.algorithmType = AlgorithmTypes.HSV;
+      assert(c.algorithmType === AlgorithmTypes.HSV);
     });
 
     it("should be throws error", () => {
@@ -73,11 +73,11 @@ describe("ColorClassify", () => {
       assert(c.classify("#fafafa", "hex") === "#ffffff");
       assert(c.classify("#121212", "hex") === "#000000");
 
-      c.setAlgorithmType(AlgorithmTypes.HSV);
+      c.algorithmType = AlgorithmTypes.HSV;
       assert(c.classify("#fafafa"), "hex" === "#ffffff");
       assert(c.classify("#121212"), "hex" === "#ffffff");
 
-      c.setAlgorithmType(AlgorithmTypes.RGB);
+      c.algorithmType = AlgorithmTypes.RGB;
       assert(c.classify("#fafafa"), "hex" === "#ffffff");
       assert(c.classify("#121212"), "hex" === "#ffffff");
     });
@@ -107,7 +107,7 @@ describe("ColorClassify", () => {
         }
       ]);
 
-      c.setAlgorithmType(AlgorithmTypes.HSV);
+      c.algorithmType= AlgorithmTypes.HSV;
       assert.deepStrictEqual(c.classifyFromArray(["#fafafa", "#fefefe", "#121212", "#333333"], "hex"), [
         {
           palette: "#ffffff",
@@ -119,7 +119,7 @@ describe("ColorClassify", () => {
         }
       ]);
 
-      c.setAlgorithmType(AlgorithmTypes.RGB);
+      c.algorithmType= AlgorithmTypes.RGB;
       assert.deepStrictEqual(c.classifyFromArray(["#fafafa", "#fefefe", "#121212", "#333333"], "hex"), [
         {
           palette: "#ffffff",

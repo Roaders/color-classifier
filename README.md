@@ -1,32 +1,13 @@
 color-classifier.js
 ===================
 
-[![Build Status](http://img.shields.io/travis/tsuyoshiwada/color-classifier.svg?style=flat-square)](https://travis-ci.org/tsuyoshiwada/color-classifier)
-[![npm version](https://img.shields.io/npm/v/color-classifier.svg?style=flat-square)](http://badge.fury.io/js/color-classifier)
-[![David](https://img.shields.io/david/dev/tsuyoshiwada/color-classifier.svg?style=flat-square)](https://david-dm.org/tsuyoshiwada/color-classifier/#info=devDependencies&view=table)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/master/LICENSE)
-
 Classify the color along the reference color. using algorithm the CIEDE2000, RGB, HSV.
-
-
-## Playground
-
-[![Playground Screenshot](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/playground.png)](http://tsuyoshiwada.github.io/color-classifier/)
-
-[Playground](http://tsuyoshiwada.github.io/color-classifier/)
-
-
 
 ## INSTALL
 
 ```bash
-$ npm install color-classifier --save
+$ npm install color-classifier-ts --save
 ```
-
-or
-
-Download the [color-classifier.min.js](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/master/color-classifier.min.js).
-
 
 ## USAGE
 
@@ -57,7 +38,7 @@ The available values are as follows.
 
 ### Palette
 
-The following is the palette list of preset.
+The following is the palette list at preset.
 
 #### [Palette.W3C](https://github.com/tsuyoshiwada/color-classifier/blob/master/src/palette/w3c.js)
 
@@ -101,7 +82,6 @@ The following is the palette list of preset.
 ### AlgorithmTypes
 
 The difference algorithm of color is possible some selection.  
-Please try in [Playground](http://tsuyoshiwada.github.io/color-classifier/) for the difference of each algorithm.
 
 | value                      | description                                                                                                                                                                                                                         |
 |----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -193,62 +173,10 @@ console.log(results);
 // ]
 ```
 
-
-### More APIs
-
-* `setPalette(palette)`
-* `getPalette()`
-* `setAlgorithmType(algorithmType)`
-* `getAlgorithmType()`
-
-
 ## LICENCE
 
 Released under the [MIT Licence](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/master/LICENSE)
 
-
-
-## AUTHOR
+## ORIGINAL AUTHOR
 
 [tsuyoshiwada](https://github.com/tsuyoshiwada)
-
-
-
-## DEVELOPMENT
-
-Initialization of the project.
-
-```bash
-$ cd /your/project/dir
-$ git clone https://github.com/tsuyoshiwada/sweet-scroll.git
-```
-
-Install some dependencies.
-
-```bash
-$ npm install
-```
-
-Start the development.
-You can access to the http://localhost:3000/.
-
-```bash
-$ npm start
-```
-
-Run lint and testing.
-
-```bash
-$ npm test
-```
-
-Generates build file.
-
-```bash
-$ npm run build
-```
-
-
----
-
-Bugs, feature requests and comments are more than welcome in the [issues](https://github.com/tsuyoshiwada/color-classifier/issues)
